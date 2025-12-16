@@ -14,8 +14,8 @@ If you want to console command global currency, you can "money Magnum x" where x
 
 Changelog:
 v1.2:
-Blunt method of overriding selling function broke ancom secret data trading and caused **Secret data to be consumed without progressing the plot** upon exchange of the data. Now it should work properly.
-if this happened to you and you can't progress story, install console command mod. unsub from this mod and use command "item quest_AncomData" to re-spawn the Ancom secret data. I will look into this in a meanwhile.
+Blunt method of overriding selling function broke ancom secret data trading and caused **Secret data to be consumed without progressing the plot** upon exchange of the data. Now it should work properly
+if this happened to you and you can't progress story, install console command mod. Use command "item quest_AncomData" to re-spawn the Ancom secret data.
 
 v1.1:
 I forgot to ref and buying item with global currency actually didn't spawn bought item in your cargo. This is now fixed.

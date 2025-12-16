@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿/*
+using HarmonyLib;
 using MGSC;
 using System;
 using System.Collections.Generic;
@@ -89,3 +90,4 @@ namespace GlobalCurrency
 
     }
 }
+*/

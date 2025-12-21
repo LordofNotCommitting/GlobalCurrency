@@ -28,7 +28,7 @@ namespace GlobalCurrency
 
             //append currency display value to global faction
 
-            __instance.AddPanelToTooltip().Initialize(ItemPropertyType.Credit, "Global Currency: " + global_faction.PlayerTradePoints.ToString(), TooltipProperty.ComprasionType.None, null);
+            __instance.AddPanelToTooltip().Initialize(ItemPropertyType.Credit, "Global:" + global_faction.PlayerTradePoints.ToString(), TooltipProperty.ComprasionType.None, null);
         }
 
     }

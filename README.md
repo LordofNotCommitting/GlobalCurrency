@@ -14,6 +14,10 @@ If you want to console command global currency, you can "money Magnum x" where x
 
 Changelog:
 
+v1.21:
+Having +6 digit currency displayed only 5 out of xth digit on faction overview screen.
+Shortened the "Global Currency: " to "Global:".
+
 v1.2:
 Blunt method of overriding selling function broke ancom secret data trading and caused **Secret data to be consumed without progressing the plot** upon exchange of the data. Now it should work properly
 if this happened to you and you can't progress story, install console command mod. Use command "item quest_AncomData" to re-spawn the Ancom secret data.

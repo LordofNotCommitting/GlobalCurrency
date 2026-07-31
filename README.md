@@ -14,6 +14,9 @@ If you want to console command global currency, you can "money Magnum x" where x
 
 Changelog:
 
+v1.22:
+Now up for Quasimorph 1.0 Release
+
 v1.21:
 Having +6 digit currency displayed only 5 out of xth digit on faction overview screen.
 Shortened the "Global Currency: " to "Global:".

@@ -5,8 +5,8 @@
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 	</PropertyGroup>
 	<PropertyGroup>
-		<!-- Set this value to your mod's Steam Workhop ID -->
-		<SteamId>3621573271</SteamId>
+		<!-- Set this value to your mod's Steam Workhop ID: 3621573271 -->
+		<SteamId></SteamId>
 	</PropertyGroup>
 	<PropertyGroup>
 		<GAME_NAME>Quasimorph</GAME_NAME>
@@ -97,6 +97,9 @@
 		<Delete Files="$(PackageFolder)$(TargetName)/$(TargetName).pdb" />
 		<ZipDirectory SourceDirectory="$(PackageFolder)" DestinationFile="$(PackageFolder)../$(TargetName).zip" Overwrite="true" />
 	</Target>
+	<ItemGroup>
+	  <ProjectReference Include="..\..\ModLoader_Bootstrap_GlobalCurrency\src\ModLoader_Bootstrap_GlobalCurrency.csproj" />
+	</ItemGroup>
 	<ItemGroup>
 		<Reference Update="System">
 			<Private>False</Private>

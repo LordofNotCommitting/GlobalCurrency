@@ -28,9 +28,12 @@ namespace GlobalCurrency
                 return;
             }
 
+            //THIS IS WHERE THE BETA ISSUE IS
+            //bool flag = __instance._station.Stash.ContainsItem(Data.Global.TutorialAncomQuestItemId);
 
-            bool flag = __instance._station.Stash.ContainsItem(Data.Global.TutorialAncomQuestItemId);
-
+            bool flag = __instance._station.Stash.ContainsItem(Data.StoryVars.TutorialAncomQuestItemId);
+            // beta flag
+            // bool flag = this._station.Stash.ContainsItem(Data.StoryVars.TutorialAncomQuestItemId);
             ProxyCorpDepartment department = __instance._magnumProgression.GetDepartment<ProxyCorpDepartment>();
             int num = Mathf.RoundToInt((float)TradeSystem.GetSellPrice(__instance._magnumProgression, __instance._factions, __instance._itemsPrices, __instance._station, __instance._difficulty, true));
             bool flag2 = num > 0;

@@ -17,6 +17,7 @@ namespace GlobalCurrency
     {
         static bool Disable_Terrorist_GlobalCurrency_On = Plugin.ConfigGeneral.ModData.GetConfigValue<bool>("Disable_Terrorist_GlobalCurrency_On", false);
         static int total_trade_point;
+        static int curency_before;
         static bool internal_disable;
         static bool internal_exchange_flag;
 
@@ -30,6 +31,9 @@ namespace GlobalCurrency
             Faction global_faction = factions.Get(Plugin.global_currency_faction, true);
             Faction faction = factions.Get(station.OwnerFactionId, true);
 
+
+            curency_before = faction.PlayerTradePoints;
+
             if (Disable_Terrorist_GlobalCurrency_On && !Plugin.legit_faction_alliance.Contains(faction.CurrentAlliance))
             {
                 internal_disable = true;
@@ -40,14 +44,8 @@ namespace GlobalCurrency
                 return true;
             }
 
-            foreach (BasePickupItem basePickupItem in inputStorage.Items)
-            {
-                if (!basePickupItem.Id.Equals(Data.Global.TutorialAncomQuestItemId) && TradeSystem.IsValidItem(faction, station, basePickupItem.Id))
-                {
-                    int num = Mathf.RoundToInt((float)(TradeSystem.GetItemSellPrice(magnumProgression, faction, station, itemsPrices, basePickupItem.Id, false) * (int)basePickupItem.StackCount) * difficulty.Preset.BarterValue);
-                    total_trade_point += num;
-                }
-            }
+
+
             if (exchangeItems)
             {
                 exchangeItems = false;
@@ -63,6 +61,8 @@ namespace GlobalCurrency
             Faction global_faction = factions.Get(Plugin.global_currency_faction, true);
             Faction faction = factions.Get(station.OwnerFactionId, true);
 
+            total_trade_point = faction.PlayerTradePoints - curency_before;
+
             //recalculate factional trade val
             global_faction.PlayerTradePoints += total_trade_point;
             faction.PlayerTradePoints -= total_trade_point;
@@ -72,7 +72,7 @@ namespace GlobalCurrency
                 global_faction.PlayerTradePoints += bonusPoints;
                 internal_exchange_flag = false;
                 exchangeItems = true;
-                TradeSystem.GetRandomItemsFromStation(magnumProgression, faction, station, itemsPrices, result, ref global_faction.PlayerTradePoints);
+                TradeSystem.GetRandomItemsFromStation(magnumProgression, faction, station, itemsPrices, result, ref global_faction.PlayerTradePoints, int.MaxValue);
             }
 
         }

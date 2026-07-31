@@ -8,18 +8,26 @@ using System.Threading.Tasks;
 using HarmonyLib;
 using MGSC;
 using UnityEngine;
+using ModLoader_Bootstrap_GlobalCurrency;
 
 namespace GlobalCurrency
 {
-    
 
 
-    public static class Plugin
+
+    public class Plugin : BootstrapMod
     {
+        public Plugin(HookEvents hookEvents, bool isBeta) : base(hookEvents, isBeta)
+        {
+            hookEvents.AfterConfigsLoaded += AfterConfig;
+        }
+
 
         public static List<string> legit_faction_alliance = new List<string> { "Hexarchy", "Corporation", "Pirates" };
         public static string global_currency_faction = "Magnum";
 
+        // Token: 0x1700000A RID: 10
+        // (get) Token: 0x06000042 RID: 66 RVA: 0x000032EA File Offset: 0x000014EA
         public static string ModAssemblyName
         {
             get
@@ -82,4 +90,5 @@ namespace GlobalCurrency
             new Harmony("LoC_" + Plugin.ModAssemblyName).PatchAll();
         }
     }
+
 }

@@ -13,6 +13,9 @@ Note: You might start with 100 global currency if you assassinated the CEO. Mayb
 If you want to console command global currency, you can "money Magnum x" where x is the amount of currency you want.
 
 Changelog:
+v1.3:
+Global currency wasn't working with trading shuttle. Now it does.
+I also added few option to make trading shuttle not ♥♥♥♥ because this part of the code could not be untangled from global currency part.
 
 v1.22:
 Now up for Quasimorph 1.0 Release

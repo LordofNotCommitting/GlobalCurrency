@@ -20,6 +20,8 @@ namespace GlobalCurrency
 
             this.ModData.AddConfigValue("general", "Disable_Terrorist_GlobalCurrency_On", false, "STRING:Disable Global Currency for PE", "STRING:Disable Global Currency mechanics for Public Enemy factions - which are: Quasimorphic factions, and Civil Resistance.");
 
+            this.ModData.AddConfigValue("general", "Disable_Trash_Exchange", false, "STRING:Disable Shuttle Mandatory Trading", "STRING:Disable mandatory purchase of random garbage when using trade shuttle. If disabled, shuttle will only exchange specified criteria of items.");
+            this.ModData.AddConfigValue("general", "Disable_Min_Threshold", false, "STRING:Disable Category Purchase Threshold", "STRING:Remove internal budget restriction on category based purchase option from trade shuttle.");
             //this.ModData.AddConfigValue("general", "Debug_Log_On", false, "STRING:Debug Log", "STRING:For personal debugging. DO NOT TURN IT ON if you don't intend to.");
 
             this.ModData.RegisterModConfigData(ModName);

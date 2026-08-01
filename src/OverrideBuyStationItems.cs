@@ -16,8 +16,6 @@ namespace GlobalCurrency
     {
         static bool Disable_Terrorist_GlobalCurrency_On = Plugin.ConfigGeneral.ModData.GetConfigValue<bool>("Disable_Terrorist_GlobalCurrency_On", false);
 
-        //Need both prefix and postfix on this one
-        static int temp_buy_price;
         public static bool Prefix(MagnumProgression magnumProgression, Factions factions, ItemsPrices itemsPrices, Statistics statistics, Station station, Dictionary<string, int> itemsToBuy, ref List<BasePickupItem> __result)
         {
 

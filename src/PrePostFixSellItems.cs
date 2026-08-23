@@ -37,7 +37,10 @@ namespace GlobalCurrency
             if (Disable_Terrorist_GlobalCurrency_On && !Plugin.legit_faction_alliance.Contains(faction.CurrentAlliance))
             {
                 internal_disable = true;
-
+            }
+            else 
+            {
+                internal_disable = false;
             }
             if (internal_disable)
             {
@@ -57,23 +60,26 @@ namespace GlobalCurrency
 
         public static void Postfix(MagnumProgression magnumProgression, ref Factions factions, ItemsPrices itemsPrices, Statistics statistics, Station station, ref List<BasePickupItem> result, ItemStorage inputStorage, Difficulty difficulty, ref bool exchangeItems, int bonusPoints, bool exchangeQuestItem)
         {
-
-            Faction global_faction = factions.Get(Plugin.global_currency_faction, true);
-            Faction faction = factions.Get(station.OwnerFactionId, true);
-
-            total_trade_point = faction.PlayerTradePoints - curency_before;
-
-            //recalculate factional trade val
-            global_faction.PlayerTradePoints += total_trade_point;
-            faction.PlayerTradePoints -= total_trade_point;
-
-            if (internal_exchange_flag)
+            if (!internal_disable) 
             {
-                global_faction.PlayerTradePoints += bonusPoints;
-                internal_exchange_flag = false;
-                exchangeItems = true;
-                TradeSystem.GetRandomItemsFromStation(magnumProgression, faction, station, itemsPrices, result, ref global_faction.PlayerTradePoints, int.MaxValue);
+                Faction global_faction = factions.Get(Plugin.global_currency_faction, true);
+                Faction faction = factions.Get(station.OwnerFactionId, true);
+
+                total_trade_point = faction.PlayerTradePoints - curency_before;
+
+                //recalculate factional trade val
+                global_faction.PlayerTradePoints += total_trade_point;
+                faction.PlayerTradePoints -= total_trade_point;
+
+                if (internal_exchange_flag)
+                {
+                    global_faction.PlayerTradePoints += bonusPoints;
+                    internal_exchange_flag = false;
+                    exchangeItems = true;
+                    TradeSystem.GetRandomItemsFromStation(magnumProgression, faction, station, itemsPrices, result, ref global_faction.PlayerTradePoints, int.MaxValue);
+                }
             }
+            
 
         }
     }
